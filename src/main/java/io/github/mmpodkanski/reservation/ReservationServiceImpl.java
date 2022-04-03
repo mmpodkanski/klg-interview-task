@@ -55,7 +55,7 @@ class ReservationServiceImpl implements ReservationService {
     public void changeReservation(final AddReservationDTO addReservationDTO, Long reservationId) {
         Optional<Reservation> reservationOptional = reservationRepository.findById(reservationId);
 
-        if (reservationOptional.isEmpty()) {
+        if (!reservationOptional.isPresent()) {
             addReservation(addReservationDTO);
             return;
         }
@@ -80,7 +80,7 @@ class ReservationServiceImpl implements ReservationService {
     private ObjectForRent checkIfReservationHasCorrectDataAndGetObject(final String objectName) {
         Optional<ObjectForRent> objectOptional = objectForRentRepository.findObjectByObjectName(objectName);
 
-        if (objectOptional.isEmpty()) {
+        if (!objectOptional.isPresent()) {
             throw new IllegalArgumentException(OBJECT_NOT_FOUND.getMessage());
         }
         List<Reservation> reservationWithTheSameObject = reservationRepository.getAllReservationsByObjectForRentObjectName(

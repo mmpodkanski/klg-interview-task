@@ -9,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,7 +47,9 @@ public class ReservationServiceImplTest {
 
         ObjectForRent objectForRent = new ObjectForRent(1L, "test", null, null, null);
         Optional<ObjectForRent> objectOptional = Optional.of(objectForRent);
-        List<Reservation> alreadyExistingReservations = List.of(
+
+        List<Reservation> alreadyExistingReservations = new ArrayList<>();
+        alreadyExistingReservations.add(
                 new Reservation(
                         10,
                         LocalDateTime.of(2022, 1, 1, 0, 0),

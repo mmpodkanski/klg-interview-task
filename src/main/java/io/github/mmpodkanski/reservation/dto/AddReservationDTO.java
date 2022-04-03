@@ -1,10 +1,8 @@
 package io.github.mmpodkanski.reservation.dto;
 
-import java.io.Serial;
 import java.io.Serializable;
 
 public class AddReservationDTO implements Serializable {
-    @Serial
     private static final long serialVersionUID = -7393306547106612835L;
     private Integer daysToBook;
     private String lessorName;
