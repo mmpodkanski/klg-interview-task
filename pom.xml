@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>io.github.mmpodkanski</groupId>
-    <artifactId>kalamba-task</artifactId>
+    <artifactId>klg-task</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>klg-task</name>
     <description>Task for KLG company</description>
