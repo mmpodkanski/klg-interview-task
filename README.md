@@ -1,7 +1,7 @@
 # KLG interview task
 
 ## Technologies and tools
-* Java 15
+* Java 8
 * Spring
 * Maven
 * Flyway
@@ -12,7 +12,7 @@
 
 ## Installation
 
-1. Clone the Project using link https://github.com/mmpodkanski/klg-task.git or Download the zip
+1. Clone the Project using link https://github.com/mmpodkanski/klg-interview-task.git or Download the zip
 2. Open project in IntelliJ:
 - File->New->Project from Version Control then past clone link
 - File->Open then find and open downloaded zip
@@ -26,15 +26,7 @@ You can run application with maven (wrapper - mvnw):
 - mvn spring-boot:run
 ```
 
-## Endpoints
-/actions - POST, GET
-
-JSON example:
-{
-    "actionName": "action name",
-    "userId": 1,
-    "gameId": 2
-}
+EXAMPLES OF REQUESTS -> requests.http
 
 ## Contact
 Created by [@mmpodkanski](https://github.com/mmpodkanski/)
