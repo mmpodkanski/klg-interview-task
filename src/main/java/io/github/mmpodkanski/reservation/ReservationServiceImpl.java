@@ -1,33 +1,29 @@
 package io.github.mmpodkanski.reservation;
 
-import static io.github.mmpodkanski.security.ExceptionMessages.LESSOR_NOT_EXISTS;
-import static io.github.mmpodkanski.security.ExceptionMessages.OBJECT_NOT_FOUND;
-import static io.github.mmpodkanski.security.ExceptionMessages.RESERVATION_EXISTS;
-import static io.github.mmpodkanski.security.ExceptionMessages.TENANT_NOT_EXISTS;
+import io.github.mmpodkanski.reservation.dto.AddReservationDTO;
+import io.github.mmpodkanski.security.ExceptionMessages;
+import io.github.mmpodkanski.user.UserRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import io.github.mmpodkanski.reservation.dto.AddReservationDTO;
-import io.github.mmpodkanski.security.ExceptionMessages;
-import io.github.mmpodkanski.user.UserRepository;
+import static io.github.mmpodkanski.security.ExceptionMessages.*;
 
 @Transactional
 @Service
 class ReservationServiceImpl implements ReservationService {
     private final ReservationRepository reservationRepository;
-    private final ObjectForRentRepository objectsRepository;
+    private final ObjectForRentRepository objectForRentRepository;
     private final UserRepository userRepository;
 
     ReservationServiceImpl(final ReservationRepository reservationRepository,
-            final ObjectForRentRepository objectsRepository, final UserRepository userRepository) {
+                           final ObjectForRentRepository objectForRentRepository, final UserRepository userRepository) {
         this.reservationRepository = reservationRepository;
-        this.objectsRepository = objectsRepository;
+        this.objectForRentRepository = objectForRentRepository;
         this.userRepository = userRepository;
     }
 
@@ -82,7 +78,7 @@ class ReservationServiceImpl implements ReservationService {
     }
 
     private ObjectForRent checkIfReservationHasCorrectDataAndGetObject(final String objectName) {
-        Optional<ObjectForRent> objectOptional = objectsRepository.findObjectByObjectName(objectName);
+        Optional<ObjectForRent> objectOptional = objectForRentRepository.findObjectByObjectName(objectName);
 
         if (objectOptional.isEmpty()) {
             throw new IllegalArgumentException(OBJECT_NOT_FOUND.getMessage());

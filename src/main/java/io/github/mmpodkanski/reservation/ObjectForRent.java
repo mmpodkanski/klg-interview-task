@@ -1,13 +1,7 @@
 package io.github.mmpodkanski.reservation;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "OBJECTS_FOR_RENT")
@@ -30,6 +24,14 @@ class ObjectForRent {
 
     private ObjectForRent() {
         // private constructor to hide public one
+    }
+
+    ObjectForRent(Long id, String objectName, BigDecimal price, Integer space, String description) {
+        this.id = id;
+        this.objectName = objectName;
+        this.price = price;
+        this.space = space;
+        this.description = description;
     }
 
     String getObjectName() {

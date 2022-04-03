@@ -14,6 +14,13 @@ public class AddReservationDTO implements Serializable {
     public AddReservationDTO() {
     }
 
+    public AddReservationDTO(Integer daysToBook, String lessorName, String tenantName, String objectName) {
+        this.daysToBook = daysToBook;
+        this.lessorName = lessorName;
+        this.tenantName = tenantName;
+        this.objectName = objectName;
+    }
+
     public Integer getDaysToBook() {
         return daysToBook;
     }
