@@ -1,0 +1,29 @@
+examples of requests
+
+### get all reservations by tenant name
+GET http://localhost:8080/reservations/tenantName/MARIUSZ
+
+###get all reservations by object name
+GET http://localhost:8080/reservations/objectName/Obiekt2
+
+### add new reservation
+POST http://localhost:8080/reservations
+Content-Type: application/json
+
+{
+    "daysToBook": 30,
+    "lessorName": "MICHAL",
+    "tenantName": "MARIUSZ",
+    "objectName": "Obiekt1"
+}
+
+### update existing reservation
+PUT http://localhost:8080/reservations/4
+Content-Type: application/json
+
+{
+    "daysToBook": 50,
+    "lessorName": "MICHAL",
+    "tenantName": "MARIUSZ",
+    "objectName": "Obiekt3"
+}
